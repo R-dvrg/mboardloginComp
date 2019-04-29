@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  php:
+      image:  rpdelavirgen/mboardlogin
+      container_name: mboardlogin_php
+      depends_on:
+        - db
+      volumes:
+        - ./var/www/html/
+      ports:
+        - "8000:80"
+  db:
+      image: rpdelavirgen/mboardlogindb
+      container_name: mboardloginDB
+        ports:
+          - "8889:3306"
