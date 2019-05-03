@@ -1,16 +1,26 @@
 version: '3'
 
 services:
-  php:
-      image:  rpdelavirgen/mboardlogin
-      depends_on:
-        - db
-      volumes:
-        - ./var/www/html/
-      ports:
-        - "8000:80"
+  web:
+    image: rpdelavirgen/finalsphp
+    container_name: php
+    links:
+      - db
+    depends_on:
+      - db
+    volumes:
+      - ./app
+    ports:
+       - "8000:80"
+    stdin_open: true
+    tty: true
+
+
+
+
   db:
-      image: rpdelavirgen/mboardlogindb
-      container_name: mboardloginDB
-        ports:
-          - "3306:3306"
+    image: rpdelavirgen/finalsdb
+    container_name: mboardloginDB
+    ports:
+      - "3306:3306"
+
