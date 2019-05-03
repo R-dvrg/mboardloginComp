@@ -23,4 +23,9 @@ services:
     container_name: mboardloginDB
     ports:
       - "3306:3306"
+    environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: mboardlogin
+    MYSQL_PASSWORD: FedUlQ8Hbl5KGxeF
+    MYSQL_DATABASE: mboardlogin
 
